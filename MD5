@@ -1,4 +1,4 @@
-0a1a202e4778349f028f67622a8814a6 *DESCRIPTION
+b142d2717b4a4506ccd423722158a3a7 *DESCRIPTION
 37655e704e51b19e8cd4d14ca044f8e8 *NAMESPACE
 98e924a8d995f3e8e4a36d93471e2b2b *R/allClasses.R
 b2bb69728d750e8b6b2ff076d97ac5f3 *R/allGenerics.R
@@ -25,10 +25,10 @@ d0b41c12e6558810f982fd7998d3e557 *data/txp_example_input.rda
 11d934c43a59308e90be98382f908525 *data/txp_example_model.rda
 59ee61772492bd08e5282e64ab8995cc *inst/doc/importFromGui.R
 d4eb4d17716c916ce70c998898b4db65 *inst/doc/importFromGui.Rmd
-f5078499843903050c87d5c7e229e65a *inst/doc/importFromGui.html
+9080841d12da2544251a741044776396 *inst/doc/importFromGui.html
 0a18914b9d1bc19d9f7bc49df0221da9 *inst/doc/introduction.R
-29f14c2aa4969ddfc58f1d428f1ae94a *inst/doc/introduction.Rmd
-5b1adc8148cccef40e71d9d1be6f1283 *inst/doc/introduction.html
+333da01fedada288fdcf8c42f89b9a8f *inst/doc/introduction.Rmd
+1262e4d65486dd563ce885553f266314 *inst/doc/introduction.html
 f66977d55a05069cb9cac37219c972ca *man/TxpModel-class.Rd
 a70f37921f6837ee1cfa49dd4a9e2b0a *man/TxpModelList-class.Rd
 822394a001df8b28d61dc8921e9e5a68 *man/TxpResult-class.Rd
@@ -39,14 +39,10 @@ a70f37921f6837ee1cfa49dd4a9e2b0a *man/TxpModelList-class.Rd
 46c82198d61701f5a5ad3ff16e4604cf *man/TxpTransFunc-class.Rd
 f9defc0b0a3b19d3c87a10374679d34b *man/TxpTransFuncList-class.Rd
 752fe6764fde499a6ac9c64337da2efb *man/boxLegendGrob.Rd
-a3e551e0139e1a868fdff6dd897754bc *man/figures/toxpiR-blue.png
-875b4ecc7d9067bf090d5532fb0d26e4 *man/figures/toxpiR-blue.svg
-1f094751d386f428fba07ec6ef446ddb *man/figures/toxpiR-social.ai
-22ab5240de5d0bafad0a46de55fb8dc4 *man/figures/toxpiR-social.png
 1440ce423b7ceec00f05aecafe3eaeca *man/pieGridGrob.Rd
 c03cb8572307a523e6e84890292b3ef9 *man/pieGrob.Rd
 bbc4321d6849e880c48364b901877324 *man/toxpiR-datasets.Rd
-8aa47c9d92a39dec6280c19c3d7238cf *man/toxpiR-package.Rd
+a9cd70d2429ec8a04307c3cb1f57f412 *man/toxpiR-package.Rd
 df8f92a76ba0b20240152973a95fbedb *man/txpCalculateScores.Rd
 a1021a008e4af04596dbade6e1fb9ed7 *man/txpGenerics.Rd
 32b8aef0313617bae4e49e3b98bbfd91 *man/txpImportGui.Rd
@@ -67,6 +63,6 @@ ada09097369d8533743b8240a4df9ddc *tests/testthat/test-TxpTransFunc.R
 f94d0b30f03c505387124f55eec849ac *tests/testthat/test-TxpTransFuncList.R
 35ecd13ab81128d1d63ed4bef97c721c *tests/testthat/test-txpImportGui.R
 7b77c414b901c6c9c8dfa2c2a6b901e3 *vignettes/embeddedFigures/gui_format.JPG
-9aa3c8495dc313fad29fb3867a37fb2a *vignettes/embeddedFigures/toxpiR-flowchart.svg
+bec8767e1b1d5cc31c955c198e949896 *vignettes/embeddedFigures/toxpiR-flowchart.svg
 d4eb4d17716c916ce70c998898b4db65 *vignettes/importFromGui.Rmd
-29f14c2aa4969ddfc58f1d428f1ae94a *vignettes/introduction.Rmd
+333da01fedada288fdcf8c42f89b9a8f *vignettes/introduction.Rmd

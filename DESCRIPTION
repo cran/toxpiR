@@ -1,10 +1,10 @@
 Package: toxpiR
 Type: Package
 Title: Create ToxPi Prioritization Models
-Version: 1.0.2
+Version: 1.0.3
 Authors@R: 
     c(person("Dayne L", "Filer", 
-             role = c("aut", "cre"), 
+             role = c("aut", "cre", "fnd"), 
              email = "dayne.filer@gmail.com",
              comment = c(ORCID = "0000-0002-3443-5315")),
       person("Dillon T", "Lloyd",
@@ -13,9 +13,12 @@ Authors@R:
              role = "aut",
              comment = c(ORCID = "0000-0001-5447-0129")),
       person("Skylar W", "Marvel",
-             role = "aut"),      
+             role = "aut"),
+      person("Alison A", "Motsinger-Reif",
+             role = c("fnd"),
+             comment = c(ORCID = "0000-0003-1346-2493")),
       person("David M", "Reif",
-             role = c("aut"),
+             role = c("aut", "fnd"),
              email = "reif.david@gmail.com",
              comment = c(ORCID = "0000-0001-7815-6767")))
 Description: 
@@ -42,12 +45,13 @@ License: GPL (>= 3)
 URL: https://github.com/ToxPi/toxpiR, https://toxpi.github.io/toxpiR/
 BugReports: https://github.com/ToxPi/toxpiR/issues
 NeedsCompilation: no
-Packaged: 2022-02-03 14:47:46 UTC; dayne
-Author: Dayne L Filer [aut, cre] (<https://orcid.org/0000-0002-3443-5315>),
+Packaged: 2022-02-18 21:26:11 UTC; dayne
+Author: Dayne L Filer [aut, cre, fnd] (<https://orcid.org/0000-0002-3443-5315>),
   Dillon T Lloyd [aut],
   Preethi Thunga [aut] (<https://orcid.org/0000-0001-5447-0129>),
   Skylar W Marvel [aut],
-  David M Reif [aut] (<https://orcid.org/0000-0001-7815-6767>)
+  Alison A Motsinger-Reif [fnd] (<https://orcid.org/0000-0003-1346-2493>),
+  David M Reif [aut, fnd] (<https://orcid.org/0000-0001-7815-6767>)
 Maintainer: Dayne L Filer <dayne.filer@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-02-07 09:00:02 UTC
+Date/Publication: 2022-02-18 22:40:02 UTC
