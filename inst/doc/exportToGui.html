@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Export ToxPi GUI Files</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Export ToxPi GUI Files</h1>
+
+
+
+<style type="text/css">
+.small-text {
+  font-size: 10px;
+}
+</style>
+<p>This vignette will show how to save a toxpiR model that will be
+compatible with the ToxPi Java GUI, which can be downloaded from <a href="https://toxpi.org/">here</a>. The toxpiR package and ToxPi Java
+GUI are not directly compatible and there are several key differences to
+keep in mind.</p>
+<div id="key-differences-between-java-gui-and-toxpir" class="section level2">
+<h2>Key differences between Java GUI and toxpiR</h2>
+<div id="slice-weights" class="section level3">
+<h3>Slice weights</h3>
+<p>The Java GUI only allows weights that are either integers or a ratio
+of integers whereas the toxpiR package has no restrictions. The
+<code>txpExportGui()</code> function requires all weights to be
+integers, so the user may need to change the model weights to acceptable
+approximations prior to calling the export function.</p>
+</div>
+<div id="transformationscaling-functions" class="section level3">
+<h3>Transformation/scaling functions</h3>
+<p>Currently the Java GUI only allows specific scaling functions and
+applies them independently to every input within a slice. The toxpiR
+package allows user-defined transformation functions at the input-level
+and slice-level. To account for these differences, all input-level
+transformation functions are applied before the data is exported. If
+slice-level transformations are applied, then the export function will
+create a data file that has the final slice scores rather than
+input-level data.</p>
+<p>The Java GUI does not allow negative input values and will treat them
+a missing data. This causes a problem if negative values exist after
+applying any user-defined transformations. If negative values occur
+within a slice, then all values of that slice will be shifted up by a
+constant so that no negative values remain. If a slice has both negative
+transformed values and missing values, then missing values are replaced
+with the added constant. In this last case, the toxpi and slice scores
+will be computed correctly, however, the Java GUI should not be used to
+compute bootstrapped confidence intervals because replacing missing data
+during the export process will cause the resampling step to be
+incorrect.</p>
+</div>
+<div id="metrics-in-multiple-slices" class="section level3">
+<h3>Metrics in multiple slices</h3>
+<p>The Java GUI does not allow multiple columns to have the same name,
+unless the data in those columns matches exactly. If a toxpiR model
+includes an input column in multiple slices, then the name will be
+appended with the slice index for each occurrence.</p>
+</div>
+</div>
+<div id="example-use" class="section level2">
+<h2>Example use</h2>
+<p>First create a toxpiR model with accompanying data. Here we’ll load
+the “Format C” data example using the <code>txpImportGui()</code>
+function.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(toxpiR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load example model from &quot;Import ToxPi GUI Files&quot; vignette</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data_format_C <span class="ot">&lt;-</span> <span class="fu">tempfile</span>()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">url =</span> <span class="st">&quot;https://raw.githubusercontent.com/ToxPi/ToxPi-example-files/main/format_C.csv&quot;</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">destfile =</span> data_format_C,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">quiet =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>gui1 <span class="ot">&lt;-</span> <span class="fu">txpImportGui</span>(data_format_C)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in method(object): The following &#39;input&#39; columns are duplicated in the model:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     metric3, metric2, metric3, metric1, metric2</span></span></code></pre></div>
+<p>Now we can use to export function to create a new data file. Notice
+the warnings for negative and missing values.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Export back into GUI format</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data_exported <span class="ot">&lt;-</span> <span class="fu">tempfile</span>()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">txpExportGui</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">fileName =</span> data_exported,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">input =</span> gui1<span class="sc">$</span>input,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> gui1<span class="sc">$</span>model,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">id.var =</span> <span class="st">&#39;Name&#39;</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">fills =</span> gui1<span class="sc">$</span>fills</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in txpExportGui(fileName = data_exported, input = gui1$input, model</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; = gui1$model, : Slice &quot;Slice2&quot; contains negative values after applying</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; transformations so all values were increased by x = 5.</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in txpExportGui(fileName = data_exported, input = gui1$input, model =</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; gui1$model, : Slice &quot;Slice3&quot; contains both missing and negative values after</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; applying transformations so missing values were replaced with 0 and then all</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; values were increased by x = 5.</span></span></code></pre></div>
+<div id="compare-the-data-files" class="section level3">
+<h3>Compare the data files</h3>
+<p>Take a moment to observe differences between the original data file
+(<code>data_format_C</code>) and the exported version
+(<code>data_exported</code>).</p>
+<p><strong><code>data_format_C</code></strong></p>
+<table style="width:100%;">
+<colgroup>
+<col width="34%" />
+<col width="9%" />
+<col width="13%" />
+<col width="7%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">V1</th>
+<th align="left">V2</th>
+<th align="left">V3</th>
+<th align="left">V4</th>
+<th align="left">V5</th>
+<th align="left">V6</th>
+<th align="left">V7</th>
+<th align="left">V8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"># Slice1!4!0xFF69B4!-log10(x)+6</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"># Slice2!4!0x6959CD!-ln(x)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"># Slice3!4!0xCDC1C5!-ln(x)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"># Slice4!5!0xFF6347!-log10(x)+6</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left">x</td>
+</tr>
+<tr class="odd">
+<td align="left">Row</td>
+<td align="left">Source</td>
+<td align="left">CASRN</td>
+<td align="left">Name</td>
+<td align="left">metric1</td>
+<td align="left">metric2</td>
+<td align="left">metric3</td>
+<td align="left">metric4</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">source01</td>
+<td align="left">11-111-1111</td>
+<td align="left">chem01</td>
+<td align="left">25</td>
+<td align="left">91</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="left">source02</td>
+<td align="left">22-222-2222</td>
+<td align="left">chem02</td>
+<td align="left">NA</td>
+<td align="left">46</td>
+<td align="left">51</td>
+<td align="left">48</td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="left">source03</td>
+<td align="left">33-333-3333</td>
+<td align="left">chem03</td>
+<td align="left">44</td>
+<td align="left">NA</td>
+<td align="left">9</td>
+<td align="left">34</td>
+</tr>
+<tr class="odd">
+<td align="left">4</td>
+<td align="left">source04</td>
+<td align="left">44-444-4444</td>
+<td align="left">chem04</td>
+<td align="left">26</td>
+<td align="left">64</td>
+<td align="left">27</td>
+<td align="left">9</td>
+</tr>
+<tr class="even">
+<td align="left">5</td>
+<td align="left">source05</td>
+<td align="left">55-555-5555</td>
+<td align="left">chem05</td>
+<td align="left">33</td>
+<td align="left">36</td>
+<td align="left">69</td>
+<td align="left">88</td>
+</tr>
+<tr class="odd">
+<td align="left">6</td>
+<td align="left">source06</td>
+<td align="left">66-666-6666</td>
+<td align="left">chem06</td>
+<td align="left">94</td>
+<td align="left">46</td>
+<td align="left">NA</td>
+<td align="left">54</td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="left">source07</td>
+<td align="left">77-777-7777</td>
+<td align="left">chem07</td>
+<td align="left">37</td>
+<td align="left">31</td>
+<td align="left">NA</td>
+<td align="left">7</td>
+</tr>
+<tr class="odd">
+<td align="left">8</td>
+<td align="left">source08</td>
+<td align="left">88-888-8888</td>
+<td align="left">chem08</td>
+<td align="left">58</td>
+<td align="left">29</td>
+<td align="left">9</td>
+<td align="left">46</td>
+</tr>
+<tr class="even">
+<td align="left">9</td>
+<td align="left">source09</td>
+<td align="left">99-999-9999</td>
+<td align="left">chem09</td>
+<td align="left">95</td>
+<td align="left">24</td>
+<td align="left">78</td>
+<td align="left">46</td>
+</tr>
+<tr class="odd">
+<td align="left">10</td>
+<td align="left">source10</td>
+<td align="left">11-222-3333</td>
+<td align="left">chem10</td>
+<td align="left">68</td>
+<td align="left">54</td>
+<td align="left">43</td>
+<td align="left">25</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>data_exported</code></strong></p>
+<div style="white-space: nowrap">
+<table style="width:100%;">
+<colgroup>
+<col width="18%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="9%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">V1</th>
+<th align="left">V2</th>
+<th align="left">V3</th>
+<th align="left">V4</th>
+<th align="left">V5</th>
+<th align="left">V6</th>
+<th align="left">V7</th>
+<th align="left">V8</th>
+<th align="left">V9</th>
+<th align="left">V10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"># Slice1!4!0xFF69B4!linear(x)</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"># Slice2!4!0x6959CD!linear(x)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"># Slice3!4!0xCDC1C5!linear(x)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"># Slice4!5!0xFF6347!linear(x)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">metric2_slice1</td>
+<td align="left">metric3_slice1</td>
+<td align="left">metric3_slice2</td>
+<td align="left">metric1_slice3</td>
+<td align="left">metric2_slice3</td>
+<td align="left">metric3_slice3</td>
+<td align="left">metric1_slice4</td>
+<td align="left">metric2_slice4</td>
+<td align="left">metric4</td>
+</tr>
+<tr class="even">
+<td align="left">chem01</td>
+<td align="left">4.0410</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">1.7811</td>
+<td align="left">0.4891</td>
+<td align="left">5.0000</td>
+<td align="left">4.6021</td>
+<td align="left">4.0410</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">chem02</td>
+<td align="left">4.3372</td>
+<td align="left">4.2924</td>
+<td align="left">1.0682</td>
+<td align="left">5.0000</td>
+<td align="left">1.1714</td>
+<td align="left">1.0682</td>
+<td align="left">NA</td>
+<td align="left">4.3372</td>
+<td align="left">4.3188</td>
+</tr>
+<tr class="even">
+<td align="left">chem03</td>
+<td align="left">NA</td>
+<td align="left">5.0458</td>
+<td align="left">2.8028</td>
+<td align="left">1.2158</td>
+<td align="left">5.0000</td>
+<td align="left">2.8028</td>
+<td align="left">4.3565</td>
+<td align="left">NA</td>
+<td align="left">4.4685</td>
+</tr>
+<tr class="odd">
+<td align="left">chem04</td>
+<td align="left">4.1938</td>
+<td align="left">4.5686</td>
+<td align="left">1.7042</td>
+<td align="left">1.7419</td>
+<td align="left">0.8411</td>
+<td align="left">1.7042</td>
+<td align="left">4.5850</td>
+<td align="left">4.1938</td>
+<td align="left">5.0458</td>
+</tr>
+<tr class="even">
+<td align="left">chem05</td>
+<td align="left">4.4437</td>
+<td align="left">4.1612</td>
+<td align="left">0.7659</td>
+<td align="left">1.5035</td>
+<td align="left">1.4165</td>
+<td align="left">0.7659</td>
+<td align="left">4.4815</td>
+<td align="left">4.4437</td>
+<td align="left">4.0555</td>
+</tr>
+<tr class="odd">
+<td align="left">chem06</td>
+<td align="left">4.3372</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">0.4567</td>
+<td align="left">1.1714</td>
+<td align="left">5.0000</td>
+<td align="left">4.0269</td>
+<td align="left">4.3372</td>
+<td align="left">4.2676</td>
+</tr>
+<tr class="even">
+<td align="left">chem07</td>
+<td align="left">4.5086</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">1.3891</td>
+<td align="left">1.5660</td>
+<td align="left">5.0000</td>
+<td align="left">4.4318</td>
+<td align="left">4.5086</td>
+<td align="left">5.1549</td>
+</tr>
+<tr class="odd">
+<td align="left">chem08</td>
+<td align="left">4.5376</td>
+<td align="left">5.0458</td>
+<td align="left">2.8028</td>
+<td align="left">0.9396</td>
+<td align="left">1.6327</td>
+<td align="left">2.8028</td>
+<td align="left">4.2366</td>
+<td align="left">4.5376</td>
+<td align="left">4.3372</td>
+</tr>
+<tr class="even">
+<td align="left">chem09</td>
+<td align="left">4.6198</td>
+<td align="left">4.1079</td>
+<td align="left">0.6433</td>
+<td align="left">0.4461</td>
+<td align="left">1.8219</td>
+<td align="left">0.6433</td>
+<td align="left">4.0223</td>
+<td align="left">4.6198</td>
+<td align="left">4.3372</td>
+</tr>
+<tr class="odd">
+<td align="left">chem10</td>
+<td align="left">4.2676</td>
+<td align="left">4.3665</td>
+<td align="left">1.2388</td>
+<td align="left">0.7805</td>
+<td align="left">1.0110</td>
+<td align="left">1.2388</td>
+<td align="left">4.1675</td>
+<td align="left">4.2676</td>
+<td align="left">4.6021</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="compare-results" class="section level3">
+<h3>Compare results</h3>
+<p>Although the data files are visually different, they will result in
+the same toxpi and slice scores.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gui2 <span class="ot">&lt;-</span> <span class="fu">txpImportGui</span>(data_exported)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">txpCalculateScores</span>(gui1<span class="sc">$</span>model, gui1<span class="sc">$</span>input)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>res2 <span class="ot">&lt;-</span> <span class="fu">txpCalculateScores</span>(gui2<span class="sc">$</span>model, gui2<span class="sc">$</span>input)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">txpScores</span>(res1),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">txpScores</span>(res2)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">txpSliceScores</span>(res1),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">txpSliceScores</span>(res2)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

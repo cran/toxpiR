@@ -25,7 +25,7 @@ gui$fills
 
 ## -----------------------------------------------------------------------------
 ## Calculate ToxPi scores
-res <- txpCalculateScores(model = gui$model, input = gui$input, id.var = "Name")
+res <- txpCalculateScores(model = gui$model, input = gui$input, id.var = "Name",negative.value.handling = "missing")
 
 ## Overall ToxPi scores
 txpScores(res)
