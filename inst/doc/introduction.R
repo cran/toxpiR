@@ -6,10 +6,10 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  install.packages("toxpiR")
+# install.packages("toxpiR")
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  remotes::install_github("ToxPi/toxpiR")
+# remotes::install_github("ToxPi/toxpiR")
 
 ## ----packages, warning=FALSE--------------------------------------------------
 library(toxpiR)
@@ -56,10 +56,10 @@ txpWeights(f.results) #Print weights
 txpMissing(f.results) #Proportion of missing data within each slice
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  library("ggplot2")
-#  
-#  # Default plot
-#  plot(f.results, package = "gg") # Using ggplot package
+# library("ggplot2")
+# 
+# # Default plot
+# plot(f.results, package = "gg") # Using ggplot package
 
 ## ----fig.show='hold', fig.width=4, fig.height=4, echo=FALSE-------------------
 library("ggplot2")
@@ -101,10 +101,10 @@ plot(f.results["chem01"], package = "gg")
 #assignInNamespace("coord_munch", coord_munch_orig, ns = "ggplot2")
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Changing the slice colors
-#  colors <- c("orange", "green", "magenta", "lightblue")
-#  plot(f.results["chem02"], package = "gg", fills = colors)
-#  plot(f.results["chem02"], package = "gg", fills = NULL)
+# # Changing the slice colors
+# colors <- c("orange", "green", "magenta", "lightblue")
+# plot(f.results["chem02"], package = "gg", fills = colors)
+# plot(f.results["chem02"], package = "gg", fills = NULL)
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Changing the slice colors
@@ -113,9 +113,9 @@ plot(f.results["chem02"], package = "gg", fills = colors)
 plot(f.results["chem02"], package = "gg", fills = NULL)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Changing the background color
-#  plot(f.results["chem02"], package = "gg", bgColor = "lightskyblue")
-#  plot(f.results["chem02"], package = "gg", bgColor = NULL)
+# # Changing the background color
+# plot(f.results["chem02"], package = "gg", bgColor = "lightskyblue")
+# plot(f.results["chem02"], package = "gg", bgColor = NULL)
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Changing the background color
@@ -123,9 +123,9 @@ plot(f.results["chem02"], package = "gg", bgColor = "lightskyblue")
 plot(f.results["chem02"], package = "gg", bgColor = NULL)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Changing the max radius ring color
-#  plot(f.results["chem02"], package = "gg", borderColor = "black")
-#  plot(f.results["chem02"], package = "gg", borderColor = NULL)
+# # Changing the max radius ring color
+# plot(f.results["chem02"], package = "gg", borderColor = "black")
+# plot(f.results["chem02"], package = "gg", borderColor = NULL)
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Changing the max radius ring color
@@ -133,9 +133,9 @@ plot(f.results["chem02"], package = "gg", borderColor = "black")
 plot(f.results["chem02"], package = "gg", borderColor = NULL)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Changing the slice border color
-#  plot(f.results["chem02"], package = "gg", sliceBorderColor = "magenta")
-#  plot(f.results["chem02"], package = "gg", sliceBorderColor = NULL)
+# # Changing the slice border color
+# plot(f.results["chem02"], package = "gg", sliceBorderColor = "magenta")
+# plot(f.results["chem02"], package = "gg", sliceBorderColor = NULL)
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Changing the slice border color
@@ -143,9 +143,9 @@ plot(f.results["chem02"], package = "gg", sliceBorderColor = "magenta")
 plot(f.results["chem02"], package = "gg", sliceBorderColor = NULL)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Adding slice guidelines
-#  plot(f.results["chem02"], package = "gg", sliceLineColor = "red")
-#  plot(f.results["chem02"], package = "gg", sliceLineColor = NULL)
+# # Adding slice guidelines
+# plot(f.results["chem02"], package = "gg", sliceLineColor = "red")
+# plot(f.results["chem02"], package = "gg", sliceLineColor = NULL)
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Adding slice guidelines 
@@ -153,9 +153,9 @@ plot(f.results["chem02"], package = "gg", sliceLineColor = "red")
 plot(f.results["chem02"], package = "gg", sliceLineColor = NULL) 
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Adding visible slice scores
-#  plot(f.results["chem02"], package = "gg", sliceValueColor = "brown")
-#  plot(f.results["chem02"], package = "gg", sliceValueColor = NULL)
+# # Adding visible slice scores
+# plot(f.results["chem02"], package = "gg", sliceValueColor = "brown")
+# plot(f.results["chem02"], package = "gg", sliceValueColor = NULL)
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Adding visible slice scores
@@ -163,9 +163,9 @@ plot(f.results["chem02"], package = "gg", sliceValueColor = "brown")
 plot(f.results["chem02"], package = "gg", sliceValueColor = NULL)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Hiding inner circle
-#  plot(f.results["chem02"], package = "gg", showCenter = TRUE)
-#  plot(f.results["chem02"], package = "gg", showCenter = FALSE)
+# # Hiding inner circle
+# plot(f.results["chem02"], package = "gg", showCenter = TRUE)
+# plot(f.results["chem02"], package = "gg", showCenter = FALSE)
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Hiding inner circle
@@ -173,9 +173,9 @@ plot(f.results["chem02"], package = "gg", showCenter = TRUE)
 plot(f.results["chem02"], package = "gg", showCenter = FALSE)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Hiding missing data information (pure white inner circle)
-#  plot(f.results["chem02"], package = "gg", showMissing = TRUE)
-#  plot(f.results["chem02"], package = "gg", showMissing = FALSE)
+# # Hiding missing data information (pure white inner circle)
+# plot(f.results["chem02"], package = "gg", showMissing = TRUE)
+# plot(f.results["chem02"], package = "gg", showMissing = FALSE)
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Hiding missing data information (pure white inner circle)
@@ -183,9 +183,9 @@ plot(f.results["chem02"], package = "gg", showMissing = TRUE)
 plot(f.results["chem02"], package = "gg", showMissing = FALSE)
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Hiding the overall profile scores
-#  plot(f.results["chem02"], package = "gg", showScore = TRUE)
-#  plot(f.results["chem02"], package = "gg", showScore = FALSE)
+# # Hiding the overall profile scores
+# plot(f.results["chem02"], package = "gg", showScore = TRUE)
+# plot(f.results["chem02"], package = "gg", showScore = FALSE)
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Hiding the overall profile scores
@@ -197,9 +197,9 @@ plot(f.results["chem02"], package = "gg", showScore = FALSE)
 plot(f.results, package = "gg", ncol = 5) 
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Moving the legend using ggplot built in theme functions
-#  plot(f.results, package = "gg", ncol = 5) + theme(legend.position = "bottom")
-#  plot(f.results, package = "gg", ncol = 2) + theme(legend.position = "left")
+# # Moving the legend using ggplot built in theme functions
+# plot(f.results, package = "gg", ncol = 5) + theme(legend.position = "bottom")
+# plot(f.results, package = "gg", ncol = 2) + theme(legend.position = "left")
 
 ## ----fig.show="hold", fig.height=5, echo=FALSE--------------------------------
 # Moving the legend using ggplot built in theme functions
@@ -253,9 +253,9 @@ grid.edit("pie-1", fills = c("red", "blue", "black", "brown"))
 grid.edit("pie-10::slice1", gp = gpar(fill = "#FC0FC0"))
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  #Single sample
-#  plot(f.results["chem02"])
-#  plot(f.results["chem02"], package = "gg")
+# #Single sample
+# plot(f.results["chem02"])
+# plot(f.results["chem02"], package = "gg")
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 #Single sample
@@ -263,9 +263,9 @@ plot(f.results["chem02"])
 plot(f.results["chem02"], package = "gg") 
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  # Subset plots
-#  plot(f.results[order(txpRanks(f.results))[1:4]]) #Profiles ranked 1-4
-#  plot(f.results[order(txpRanks(f.results))[1:4]], package = "gg") #Profiles ranked 1-4
+# # Subset plots
+# plot(f.results[order(txpRanks(f.results))[1:4]]) #Profiles ranked 1-4
+# plot(f.results[order(txpRanks(f.results))[1:4]], package = "gg") #Profiles ranked 1-4
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 # Subset plots
@@ -273,15 +273,15 @@ plot(f.results[order(txpRanks(f.results))[1:4]]) #Profiles ranked 1-4
 plot(f.results[order(txpRanks(f.results))[1:4]], package = "gg") #Profiles ranked 1-4
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  ## Long sample names for cramped plots
-#  
-#  #change the first sample name in f.results
-#  txpIDs(f.results)[1] <- "I am a long sample name"
-#  
-#  plot(f.results) #grid plot for all samples
-#  plot(f.results, package = "gg") #ggplot for all samples
-#  
-#  txpIDs(f.results)[1] <- "chem01" # Change the sample name back
+# ## Long sample names for cramped plots
+# 
+# #change the first sample name in f.results
+# txpIDs(f.results)[1] <- "I am a long sample name"
+# 
+# plot(f.results) #grid plot for all samples
+# plot(f.results, package = "gg") #ggplot for all samples
+# 
+# txpIDs(f.results)[1] <- "chem01" # Change the sample name back
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 ## Long sample names for cramped plots
@@ -295,28 +295,28 @@ plot(f.results, package = "gg") #ggplot for all samples
 txpIDs(f.results)[1] <- "chem01" # Change the sample name back
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  ## Long slice names for cramped plots
-#  
-#  #change first slice name in model slot
-#  names(f.results@txpModel)[1] <- "long slice name"
-#  #change first slice name in scores slot
-#  colnames(f.results@txpSliceScores)[1] <- "long slice name"
-#  #change first slice name in missing data slot
-#  names(f.results@txpMissing)[1] <- "long slice name"
-#  
-#  #plot results using grid
-#  plot(f.results)
-#  #plot results using ggplot
-#  plot(f.results, package = "gg") + theme(
-#    legend.position = "bottom",
-#    legend.title = element_text(size = 10),
-#    legend.text = element_text(size = 6)
-#  )
-#  
-#  #change slice name back
-#  names(f.results@txpModel)[1] <- "s1"
-#  colnames(f.results@txpSliceScores)[1] <- "s1"
-#  names(f.results@txpMissing)[1] <- "s1"
+# ## Long slice names for cramped plots
+# 
+# #change first slice name in model slot
+# names(f.results@txpModel)[1] <- "long slice name"
+# #change first slice name in scores slot
+# colnames(f.results@txpSliceScores)[1] <- "long slice name"
+# #change first slice name in missing data slot
+# names(f.results@txpMissing)[1] <- "long slice name"
+# 
+# #plot results using grid
+# plot(f.results)
+# #plot results using ggplot
+# plot(f.results, package = "gg") + theme(
+#   legend.position = "bottom",
+#   legend.title = element_text(size = 10),
+#   legend.text = element_text(size = 6)
+# )
+# 
+# #change slice name back
+# names(f.results@txpModel)[1] <- "s1"
+# colnames(f.results@txpSliceScores)[1] <- "s1"
+# names(f.results@txpMissing)[1] <- "s1"
 
 ## ----fig.show="hold", echo=FALSE----------------------------------------------
 ## Long slice names for cramped plots
